@@ -1,8 +1,16 @@
 import axios from "axios"
+const newPlugin307 = axios.create({
+  baseURL:
+    "https://crowdbotics-slack-dev.herokuapp.com/dashboard/app/8264/storyboard/9547/",
+  headers: { Accept: "application/json", "Content-Type": "application/json" }
+})
 const temp30julAPI = axios.create({
   baseURL: "https://temp-30-jul-dev-8264-prod.herokuapp.com/",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function newplugin307_get__read() {
+  return newPlugin307.get(`/`)
+}
 function api_v1_customtext_list() {
   return temp30julAPI.get(`/api/v1/customtext/`)
 }
@@ -67,6 +75,7 @@ function rest_auth_user_partial_update(requestBody) {
   return temp30julAPI.patch(`/rest-auth/user/`, requestBody)
 }
 export const apiService = {
+  newplugin307_get__read,
   api_v1_customtext_list,
   api_v1_customtext_read,
   api_v1_customtext_update,
